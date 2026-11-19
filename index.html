@@ -172,8 +172,9 @@
     border:1px solid rgba(160,122,44,.14);box-shadow:var(--shadow-sm);
     display:flex;align-items:center;gap:16px;
   }
-  .qr .code{width:92px;height:92px;flex:none;padding:6px;border-radius:14px;background:#fff;border:1px solid var(--line)}
-  .qr .code img,.qr .code canvas{width:100%!important;height:100%!important;display:block}
+  .qr .code{width:112px;height:112px;flex:none;padding:4px;border-radius:14px;background:#fff;border:1px solid var(--line)}
+  .qr .code img{width:100%;height:100%;display:block;image-rendering:pixelated}
+  .qr .dl{display:inline-block;margin-top:8px;font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--gold);border-bottom:1px solid currentColor}
   .qr h2{font-family:var(--serif);font-size:24px;font-weight:700;line-height:1.1}
   .qr p{margin-top:4px;font-size:13px;color:var(--muted);line-height:1.45}
 
@@ -246,10 +247,13 @@
   </article>
 
   <aside class="qr rise d3">
-    <div class="code" id="qr" aria-label="QR code for this card"></div>
+    <a class="code" href="qr.png" download="Haris-BM-QR.png" aria-label="Download QR code">
+      <img src="qr.svg" alt="QR code linking to web3saad.github.io/haris-card" width="104" height="104">
+    </a>
     <div>
       <h2>Scan to connect</h2>
       <p>Show this code to share Haris's card instantly.</p>
+      <a class="dl" href="qr.png" download="Haris-BM-QR.png">Download QR</a>
     </div>
   </aside>
 
@@ -258,7 +262,6 @@
 
 <div class="toast" id="toast" role="status"></div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
   var PHONE = "971556617710";   // WhatsApp
   var CALL  = "971557557167";   // Call
@@ -298,16 +301,6 @@
       toast(PAGE);
     }
   });
-
-  try {
-    new QRCode(document.getElementById("qr"), {
-      text: PAGE, width: 240, height: 240,
-      colorDark: "#1d1a14", colorLight: "#ffffff",
-      correctLevel: QRCode.CorrectLevel.M
-    });
-  } catch (e) {
-    document.querySelector(".qr").style.display = "none";
-  }
 </script>
 </body>
 </html>
