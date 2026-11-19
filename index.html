@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Haris BM</title>
 <meta name="description" content="Connect with Haris BM on WhatsApp and Instagram.">
-<meta name="theme-color" content="#062a1b">
+<meta name="theme-color" content="#faf8f3">
 <meta property="og:title" content="Haris BM">
 <meta property="og:image" content="avatar.jpg">
 <link rel="icon" href="avatar.jpg">
@@ -13,13 +13,14 @@
 <link rel="preload" as="image" href="avatar.jpg">
 <style>
   :root{
-    --bg:#062a1b;
-    --green:#0f4a30;
-    --gold:#d4af5a;
-    --gold-grad:linear-gradient(120deg,#9c7426,#f3d98d 45%,#c9a24a 70%,#8f6a22);
-    --text:#f5f1e6;
-    --muted:rgba(245,241,230,.62);
-    --line:rgba(212,175,90,.28);
+    --bg:#faf8f3;
+    --card:#ffffff;
+    --gold:#a8822f;
+    --gold-grad:linear-gradient(120deg,#8a6420,#e9c873 45%,#b8913a 70%,#7d5b1c);
+    --text:#1c1a17;
+    --muted:#7b746a;
+    --line:rgba(168,130,47,.22);
+    --shadow:0 1px 2px rgba(60,45,20,.05), 0 10px 28px -12px rgba(60,45,20,.18);
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{
@@ -27,53 +28,60 @@
     font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     color:var(--text);
     background:
-      radial-gradient(70% 45% at 50% 0%, #17603f 0%, transparent 70%),
-      radial-gradient(60% 40% at 100% 100%, #0e4029 0%, transparent 70%),
+      radial-gradient(80% 40% at 50% 0%, #fff6e2 0%, transparent 70%),
+      radial-gradient(60% 40% at 0% 100%, #f3ede1 0%, transparent 70%),
+      radial-gradient(50% 35% at 100% 70%, #fbf3e3 0%, transparent 70%),
       var(--bg);
     display:flex;flex-direction:column;align-items:center;
     padding:max(28px, env(safe-area-inset-top)) 20px max(28px, env(safe-area-inset-bottom));
     -webkit-font-smoothing:antialiased;
   }
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;
+    background:repeating-linear-gradient(135deg, rgba(168,130,47,.025) 0 1px, transparent 1px 14px);
+  }
   a{color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
-  .wrap{width:100%;max-width:400px;display:flex;flex-direction:column;align-items:center;text-align:center;animation:in .5s ease-out both}
+  .wrap{position:relative;width:100%;max-width:400px;display:flex;flex-direction:column;align-items:center;text-align:center;animation:in .5s ease-out both}
   @keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
-  .logo{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;border:1px solid var(--line);background:rgba(255,255,255,.04);font-weight:800;font-size:18px;letter-spacing:.04em;background-clip:padding-box}
+  .logo{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;border:1px solid var(--line);background:var(--card);box-shadow:var(--shadow);font-weight:800;font-size:18px;letter-spacing:.04em}
   .logo b{background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 
   .avatar{
     margin-top:22px;
     width:156px;height:156px;border-radius:50%;
     padding:4px;background:var(--gold-grad);
-    box-shadow:0 18px 40px -14px rgba(0,0,0,.7);
+    box-shadow:0 22px 40px -16px rgba(90,65,20,.45);
   }
-  .avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;border:3px solid var(--bg)}
+  .avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;border:3px solid #fff}
 
   /* contacts (above the name) */
   .contacts{margin-top:26px;display:flex;gap:14px;justify-content:center}
   .ci{
     width:58px;height:58px;border-radius:18px;
     display:grid;place-items:center;
-    background:rgba(255,255,255,.05);
+    background:var(--card);
     border:1px solid var(--line);
+    box-shadow:var(--shadow);
     color:var(--gold);
     transition:transform .12s ease, background .2s, border-color .2s;
   }
   .ci svg{width:26px;height:26px}
   .ci:active{transform:scale(.93)}
-  @media (hover:hover){.ci:hover{background:rgba(212,175,90,.12);border-color:var(--gold)}}
+  @media (hover:hover){.ci:hover{background:#fffaf0;border-color:var(--gold)}}
   .ci.wa{background:#25D366;border-color:#25D366;color:#fff}
 
-  .name{margin-top:28px;font-size:clamp(28px,8.4vw,34px);font-weight:800;letter-spacing:.01em;line-height:1.05}
-  .sub{margin-top:8px;font-size:15px;font-weight:500;letter-spacing:.4em;padding-left:.4em;color:var(--gold)}
+  .name{margin-top:28px;font-size:clamp(28px,8.4vw,34px);font-weight:800;letter-spacing:.06em;line-height:1.05;color:var(--text)}
+  .sub{margin-top:8px;font-size:15px;font-weight:600;letter-spacing:.4em;padding-left:.4em;color:var(--gold)}
   .rule{width:56px;height:2px;margin:18px auto 0;background:var(--gold-grad);border-radius:2px}
 
   .links{margin-top:28px;width:100%;display:grid;gap:12px}
   .link{
     display:flex;align-items:center;gap:14px;
     padding:15px 18px;border-radius:16px;
-    background:rgba(255,255,255,.04);
+    background:var(--card);
     border:1px solid var(--line);
+    box-shadow:var(--shadow);
     text-align:left;font-size:15px;font-weight:600;
     transition:transform .12s ease, border-color .2s;
   }
@@ -82,20 +90,21 @@
   .link svg{width:22px;height:22px;flex:none;color:var(--gold)}
   .link span{flex:1}
   .link small{display:block;font-size:12.5px;font-weight:400;color:var(--muted);margin-top:2px}
-  .link .arr{width:18px;height:18px;opacity:.7}
+  .link .arr{width:18px;height:18px;opacity:.6}
 
   .save{
     margin-top:6px;
     display:flex;align-items:center;justify-content:center;gap:10px;
     padding:16px;border-radius:16px;border:0;cursor:pointer;
-    background:var(--gold-grad);color:#0b2a1c;
-    font:inherit;font-size:15px;font-weight:700;letter-spacing:.02em;
+    background:#1c1a17;color:#f3d98d;
+    box-shadow:0 14px 28px -14px rgba(28,26,23,.6);
+    font:inherit;font-size:15px;font-weight:700;letter-spacing:.04em;
   }
   .save svg{width:20px;height:20px}
   .save:active{transform:scale(.98)}
 
   footer{margin-top:30px;font-size:11px;letter-spacing:.25em;color:var(--muted)}
-  footer b{color:var(--gold);font-weight:600}
+  footer b{color:var(--gold);font-weight:700}
 </style>
 </head>
 <body>
